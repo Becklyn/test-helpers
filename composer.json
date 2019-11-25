@@ -1,0 +1,49 @@
+{
+    "name": "becklyn/test-helpers",
+    "type": "library",
+    "description": "Common test helpers",
+    "homepage": "https://github.com/Becklyn/test-helpers",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Becklyn Studios",
+            "homepage": "https://becklyn.com/"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "doctrine/orm": "^2.6"
+    },
+    "require-dev": {
+        "becklyn/php-cs": "^3.0.1",
+        "symfony/phpunit-bridge": "^5.0",
+        "tm/tooly-composer-script": "^1.4"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "tools": {
+            "php-cs-fixer": {
+                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.16.0/php-cs-fixer.phar",
+                "sign-url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.16.0/php-cs-fixer.phar.asc",
+                "only-dev": true
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Becklyn\\TestHelpers\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Becklyn\\TestHelpers\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "Tooly\\ScriptHandler::installPharTools",
+        "post-update-cmd": "Tooly\\ScriptHandler::installPharTools"
+    }
+}
