@@ -58,6 +58,24 @@ abstract class NoMissingTranslationsTest extends TestCase
             $arguments[] = $dir;
         }
 
+        foreach ($this->getMockedFunctions() as $name)
+        {
+            $arguments[] = "--mock-function";
+            $arguments[] = $name;
+        }
+
+        foreach ($this->getMockedFilters() as $name)
+        {
+            $arguments[] = "--mock-filter";
+            $arguments[] = $name;
+        }
+
+        foreach ($this->getMockedTests() as $name)
+        {
+            $arguments[] = "--mock-test";
+            $arguments[] = $name;
+        }
+
         $process = new Process($arguments);
         $process->mustRun();
         $output = $process->getOutput();
@@ -126,6 +144,39 @@ abstract class NoMissingTranslationsTest extends TestCase
      *            string[] -> ignore in these specific domains
      */
     protected function getIgnoredKeys () : array
+    {
+        return [];
+    }
+
+
+    /**
+     * Returns the names of the functions to mock.
+     *
+     * @return string[]
+     */
+    protected function getMockedFunctions () : array
+    {
+        return [];
+    }
+
+
+    /**
+     * Returns the names of the filters to mock.
+     *
+     * @return string[]
+     */
+    protected function getMockedFilters () : array
+    {
+        return [];
+    }
+
+
+    /**
+     * Returns the names of the tests to mock.
+     *
+     * @return string[]
+     */
+    protected function getMockedTests () : array
     {
         return [];
     }
