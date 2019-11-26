@@ -18,9 +18,8 @@
         "symfony/translation": "^5.0"
     },
     "require-dev": {
-        "becklyn/php-cs": "^3.0.1",
-        "symfony/phpunit-bridge": "^5.0",
-        "tm/tooly-composer-script": "^1.4"
+        "roave/security-advisories": "dev-master",
+        "symfony/phpunit-bridge": "^5.0"
     },
     "config": {
         "sort-packages": true
