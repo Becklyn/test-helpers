@@ -1,3 +1,9 @@
+1.1.2
+=====
+
+*   (improvement) Support the Symfony 5 bundle structure out of the box in `NoMissingTranslationsTest`.
+
+
 1.1.1
 =====
 
