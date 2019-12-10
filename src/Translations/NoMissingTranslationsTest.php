@@ -120,6 +120,7 @@ abstract class NoMissingTranslationsTest extends TestCase
 
         return [
             "{$root}/src/Resources/translations",
+            "{$root}/translations",
         ];
     }
 
