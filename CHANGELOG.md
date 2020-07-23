@@ -1,3 +1,10 @@
+1.2.0
+=====
+
+*   (feature) Add automatic integration in new RAD doctrine types
+    in `SchemaValidationTest`.
+
+
 1.1.2
 =====
 
