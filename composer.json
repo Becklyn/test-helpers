@@ -18,11 +18,18 @@
         "symfony/translation": "^5.0"
     },
     "require-dev": {
+        "becklyn/rad": "^8.1",
+        "phpunit/phpunit": "^8.5.0",
         "roave/security-advisories": "dev-master",
         "symfony/phpunit-bridge": "^5.0"
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-next": "1.x-dev"
+        }
     },
     "autoload": {
         "psr-4": {

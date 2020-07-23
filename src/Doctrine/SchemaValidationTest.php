@@ -2,6 +2,8 @@
 
 namespace Becklyn\TestHelpers\Doctrine;
 
+use Becklyn\Rad\Doctrine\Types\SerializedType;
+use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaValidator;
 use Doctrine\ORM\Tools\Setup;
@@ -9,6 +11,8 @@ use PHPUnit\Framework\TestCase;
 
 abstract class SchemaValidationTest extends TestCase
 {
+    private static $typesInitialized = false;
+
     /**
      * Tests that the Doctrine schema is valid
      */
@@ -32,6 +36,17 @@ abstract class SchemaValidationTest extends TestCase
         $entityManager = EntityManager::create([
             "url" => "sqlite:///:memory:",
         ], $config);
+
+        if (!self::$typesInitialized)
+        {
+            if (\class_exists(SerializedType::class))
+            {
+                Type::addType(SerializedType::NAME, SerializedType::class);
+            }
+
+            self::$typesInitialized = true;
+        }
+
         $validator = new SchemaValidator($entityManager);
         $issues = $validator->validateMapping();
 
@@ -41,7 +56,6 @@ abstract class SchemaValidationTest extends TestCase
 
 
     /**
-     * @return string
      */
     protected function getEntityDirs () : array
     {
