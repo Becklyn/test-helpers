@@ -25,6 +25,11 @@
     "config": {
         "sort-packages": true
     },
+    "extra": {
+        "branch-alias": {
+            "dev-next": "1.x-dev"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Becklyn\\TestHelpers\\": "src/"
