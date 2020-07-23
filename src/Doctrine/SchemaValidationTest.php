@@ -56,7 +56,6 @@ abstract class SchemaValidationTest extends TestCase
 
 
     /**
-     * @return string
      */
     protected function getEntityDirs () : array
     {
