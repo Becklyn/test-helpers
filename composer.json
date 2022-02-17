@@ -1,35 +1,27 @@
 {
     "name": "becklyn/test-helpers",
-    "type": "library",
     "description": "Common test helpers",
-    "homepage": "https://github.com/Becklyn/test-helpers",
     "license": "BSD-3-Clause",
+    "type": "library",
     "authors": [
         {
             "name": "Becklyn Studios",
             "homepage": "https://becklyn.com/"
         }
     ],
+    "homepage": "https://github.com/Becklyn/test-helpers",
     "require": {
-        "php": "^7.2",
+        "php": ">=7.4",
         "ext-json": "*",
-        "doctrine/orm": "^2.6",
-        "symfony/process": "^5.0",
-        "symfony/translation": "^5.0"
+        "doctrine/orm": "^2.11.1",
+        "symfony/process": "^v5.4.3 || ^v6.0.3",
+        "symfony/translation": "^v5.4.3 || ^v6.0.3"
     },
     "require-dev": {
-        "becklyn/rad": "^8.1",
-        "phpunit/phpunit": "^8.5.0",
+        "becklyn/rad": "^8.6.0",
+        "phpunit/phpunit": "^9.5.13",
         "roave/security-advisories": "dev-master",
-        "symfony/phpunit-bridge": "^5.0"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-next": "1.x-dev"
-        }
+        "symfony/phpunit-bridge": "^v5.4.3 || ^v6.0.3"
     },
     "autoload": {
         "psr-4": {
@@ -39,6 +31,14 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\Becklyn\\TestHelpers\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-next": "1.x-dev"
         }
     }
 }

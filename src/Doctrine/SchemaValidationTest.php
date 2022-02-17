@@ -11,7 +11,8 @@ use PHPUnit\Framework\TestCase;
 
 abstract class SchemaValidationTest extends TestCase
 {
-    private static $typesInitialized = false;
+    private static bool $typesInitialized = false;
+
 
     /**
      * Tests that the Doctrine schema is valid
@@ -23,6 +24,7 @@ abstract class SchemaValidationTest extends TestCase
         if (empty($entityDirs))
         {
             self::markTestSkipped("No valid entity dirs found.");
+            // @phpstan-ignore-next-line
             return;
         }
 
@@ -51,12 +53,11 @@ abstract class SchemaValidationTest extends TestCase
         $issues = $validator->validateMapping();
 
         $log = \json_encode($issues, \JSON_PRETTY_PRINT);
+
         self::assertEmpty($issues, "Mapping errors should be empty, received:\n{$log}");
     }
 
 
-    /**
-     */
     protected function getEntityDirs () : array
     {
         $root = \rtrim($this->getRootDir(), "/");
@@ -73,6 +74,7 @@ abstract class SchemaValidationTest extends TestCase
     protected function getRootDir () : string
     {
         $r = new \ReflectionClass($this);
+
         return \dirname($r->getFileName(), 2);
     }
 }
